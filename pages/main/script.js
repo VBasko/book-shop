@@ -69,10 +69,31 @@ function addMain() {
 }
 
 function addFirstSection() {
-  const container = document.createElement("div");
-  container.setAttribute("class", "container");
   const sectionFirst = document.createElement("section");
   sectionFirst.setAttribute("class", "section section-first");
+  const container = document.createElement("div");
+  container.setAttribute("class", "container");
+  const left = document.createElement("div");
+  left.setAttribute("class", "left");
+  const title = document.createElement("h1");
+  const paragraph = document.createElement("p");
+  const startText = document.createTextNode("Buy ");
+  const span = document.createElement("span");
+  span.textContent = "books";
+  const endText = document.createTextNode(" with delivery to your door");
+  [startText, span, endText].map((el) => title.appendChild(el));
+
+  paragraph.textContent =
+    "View a huge selection of books in our catalog. By buying online you save time reading books.";
+  const cta = document.createElement("a");
+  cta.textContent = "Get started";
+  [title, paragraph, cta].map((el) => left.appendChild(el));
+
+  const right = document.createElement("div");
+  right.setAttribute("class", "right");
+
+  container.appendChild(left);
+  container.appendChild(right);
   sectionFirst.appendChild(container);
 
   return sectionFirst;
