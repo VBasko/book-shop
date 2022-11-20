@@ -1,1 +1,47 @@
+.section-first {
+  padding-top: 100px;
+}
 
+.section-first .container {
+  display: flex;
+}
+
+.section-first .right {
+  padding-top: 30px;
+}
+
+.section-first h1 span {
+  text-shadow: 3px 3px #aaa;
+}
+
+.section-first h1 {
+  margin-bottom: 36px;
+  max-width: 447px;
+}
+
+.section-first p {
+  max-width: 260px;
+  margin-bottom: 40px;
+}
+
+.get-started {
+  text-decoration: none;
+  background: var(--color-black);
+  padding: 14px 33px;
+  color: var(--color-white);
+  box-shadow: 5px 5px 0px #ffc562;
+  transition: var(--transition);
+}
+
+.get-started:hover,
+.get-started:active {
+  text-decoration: none;
+}
+
+.get-started:hover {
+  box-shadow: 3px 3px 0px #ffc562;
+}
+
+.get-started:active {
+  box-shadow: 1px 1px 0px #ffc562;
+}

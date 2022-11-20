@@ -4,6 +4,7 @@
   --transition: 0.3s all ease;
   --color-beije: #f5f4da;
   --color-black: #000;
+  --color-white: #fff;
 }
 
 body {
@@ -38,6 +39,14 @@ body {
 main {
   flex: 1 0 auto;
   padding-top: 90px;
+}
+
+h1,
+h2 {
+  font-size: 48px;
+  line-height: 1.17;
+  font-weight: 700;
+  margin: 0;
 }
 
 ul {
@@ -83,4 +92,15 @@ header ul {
 #items-in-cart {
   font-weight: 500;
   font-style: italic;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  box-shadow: 5px 5px 0px #bb393c;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  box-shadow: 3px 3px 0px #bb393c;
 }
