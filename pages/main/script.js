@@ -165,6 +165,11 @@ function createBook(bookInfo, index) {
 
   const img = document.createElement("img");
   img.setAttribute("src", `${bookInfo.imageLink}`);
+  img.setAttribute("height", "224px");
+  img.setAttribute("width", "auto");
+
+  const textWrapper = document.createElement("div");
+  textWrapper.setAttribute("class", "book-text");
 
   imgWrapper.appendChild(img);
   book.appendChild(imgWrapper);
