@@ -67,10 +67,13 @@ function addMain() {
   main.appendChild(addFirstSection());
   main.appendChild(addSecondSection());
   main.appendChild(addThirdSection());
+  main.appendChild(addFourthSection());
 
   mainEl.appendChild(main);
   wrapperEl.appendChild(mainEl);
 }
+
+// Hero section
 
 function addFirstSection() {
   const sectionFirst = document.createElement("section");
@@ -108,6 +111,8 @@ function addFirstSection() {
   return sectionFirst;
 }
 
+// Banner
+
 function addSecondSection() {
   const sectionSecond = document.createElement("section");
   sectionSecond.setAttribute("class", "section section-second");
@@ -122,6 +127,8 @@ function addSecondSection() {
   return sectionSecond;
 }
 
+// Catalog
+
 function addThirdSection() {
   const sectionThird = document.createElement("section");
   sectionThird.setAttribute("class", "section section-third");
@@ -134,7 +141,7 @@ function addThirdSection() {
   const catalog = document.createElement("div");
   catalog.setAttribute("class", "catalog");
 
-  fetch("./books.json") //path to the file with json data
+  fetch("./books.json")
     .then((response) => {
       return response.json();
     })
@@ -149,6 +156,8 @@ function addThirdSection() {
 
   return sectionThird;
 }
+
+// Create separate book for the catalog
 
 function createBook(bookInfo, index) {
   const book = document.createElement("div");
@@ -225,4 +234,28 @@ function createBook(bookInfo, index) {
   book.appendChild(textWrapper);
 
   return book;
+}
+
+function addFourthSection() {
+  const sectionFourth = document.createElement("section");
+  sectionFourth.setAttribute("class", "section section-fourth");
+  const container = document.createElement("div");
+  container.setAttribute("class", "container");
+
+  const title = document.createElement("h2");
+  title.textContent = "We are in contact";
+
+  const buttonsWrapper = document.createElement("div");
+  const callBtn = document.createElement("a");
+  callBtn.textContent = "Call";
+  callBtn.setAttribute("class", "btn btn-black");
+  const chatBtn = document.createElement("a");
+  chatBtn.textContent = "Chat";
+  callBtn.setAttribute("class", "btn btn-white");
+  [callBtn, chatBtn].map((el) => buttonsWrapper.appendChild(el));
+
+  [title, buttonsWrapper].map((el) => container.appendChild(el));
+  sectionFourth.appendChild(container);
+
+  return sectionFourth;
 }
