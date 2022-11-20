@@ -196,3 +196,56 @@
   background: var(--color-yellow);
   margin-bottom: 34px;
 }
+
+.section-fourth {
+  background-image: url(../../assets/images/background.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 809px;
+}
+
+.section-fourth h2 {
+  padding-top: 275px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-fourth .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+.section-fourth .btn {
+  display: inline-block;
+  margin: 0;
+  padding: 15px 80px;
+}
+
+.btn-black {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.section-fourth .btn-white {
+  position: relative;
+}
+
+.section-fourth .btn-white::after {
+  content: url(../../assets/images/chat-btn-decor.svg);
+  position: absolute;
+  top: -60px;
+  right: -130px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+
+.copy {
+  color: var(--color-red);
+}

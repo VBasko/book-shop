@@ -251,12 +251,13 @@ function addFourthSection() {
   title.textContent = "We are in contact";
 
   const buttonsWrapper = document.createElement("div");
+  buttonsWrapper.setAttribute("class", "buttons");
   const callBtn = document.createElement("a");
   callBtn.textContent = "Call";
   callBtn.setAttribute("class", "btn btn-black");
   const chatBtn = document.createElement("a");
   chatBtn.textContent = "Chat";
-  callBtn.setAttribute("class", "btn btn-white");
+  chatBtn.setAttribute("class", "btn btn-white");
   [callBtn, chatBtn].map((el) => buttonsWrapper.appendChild(el));
 
   [title, buttonsWrapper].map((el) => container.appendChild(el));
@@ -282,6 +283,7 @@ function addFooter() {
   const developer = document.createElement("a");
   developer.textContent = "Created by Viktoriia Basko";
   developer.setAttribute("href", "https://www.linkedin.com/in/vbasko/");
+  [designer, developer].map((el) => el.setAttribute("target", "_blank"));
   const copy = document.createElement("p");
   copy.setAttribute("class", "copy");
   copy.textContent = "© 2022 Bookshop";
