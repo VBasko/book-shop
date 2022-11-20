@@ -63,7 +63,11 @@ function addMain() {
   const main = document.createElement("main");
   main.setAttribute("class", "main");
   main.setAttribute("id", "main");
+
   main.appendChild(addFirstSection());
+  main.appendChild(addSecondSection());
+  main.appendChild(addThirdSection());
+
   mainEl.appendChild(main);
   wrapperEl.appendChild(mainEl);
 }
@@ -101,4 +105,69 @@ function addFirstSection() {
   sectionFirst.appendChild(container);
 
   return sectionFirst;
+}
+
+function addSecondSection() {
+  const sectionSecond = document.createElement("section");
+  sectionSecond.setAttribute("class", "section section-second");
+  const container = document.createElement("div");
+  container.setAttribute("class", "container");
+  const text = document.createElement("h2");
+  text.textContent = "Trusted by 1,000,000 clients all over the world";
+
+  container.appendChild(text);
+  sectionSecond.appendChild(container);
+
+  return sectionSecond;
+}
+
+function addThirdSection() {
+  const sectionThird = document.createElement("section");
+  sectionThird.setAttribute("class", "section section-third");
+  const container = document.createElement("div");
+  container.setAttribute("class", "container");
+
+  const title = document.createElement("h2");
+  title.textContent = "Huge catalog";
+
+  const catalog = document.createElement("div");
+  catalog.setAttribute("class", "catalog");
+
+  fetch("./books.json") //path to the file with json data
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      data.map((bookInfo, index) =>
+        catalog.appendChild(createBook(bookInfo, index))
+      );
+    });
+
+  [title, catalog].map((el) => container.appendChild(el));
+  sectionThird.appendChild(container);
+
+  return sectionThird;
+}
+
+function createBook(bookInfo, index) {
+  const book = document.createElement("div");
+  book.setAttribute("class", "book-card");
+  book.setAttribute("id", `${index}`);
+  const imgWrapper = document.createElement("div");
+
+  if (index % 9 == 0 || index % 9 == 5 || index % 9 == 7) {
+    imgWrapper.setAttribute("class", "book-image blue");
+  } else if (index % 9 == 1 || index % 9 == 3 || index % 9 == 8) {
+    imgWrapper.setAttribute("class", "book-image red");
+  } else {
+    imgWrapper.setAttribute("class", "book-image yellow");
+  }
+
+  const img = document.createElement("img");
+  img.setAttribute("src", `${bookInfo.imageLink}`);
+
+  imgWrapper.appendChild(img);
+  book.appendChild(imgWrapper);
+
+  return book;
 }
