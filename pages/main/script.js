@@ -91,6 +91,7 @@ function addFirstSection() {
     "View a huge selection of books in our catalog. By buying online you save time reading books.";
   const cta = document.createElement("a");
   cta.textContent = "Get started";
+  cta.setAttribute("class", "btn get-started");
   [title, paragraph, cta].map((el) => left.appendChild(el));
 
   const right = document.createElement("div");
@@ -153,6 +154,7 @@ function createBook(bookInfo, index) {
   const book = document.createElement("div");
   book.setAttribute("class", "book-card");
   book.setAttribute("id", `${index}`);
+
   const imgWrapper = document.createElement("div");
 
   if (index % 9 == 0 || index % 9 == 5 || index % 9 == 7) {
@@ -168,11 +170,59 @@ function createBook(bookInfo, index) {
   img.setAttribute("height", "224px");
   img.setAttribute("width", "auto");
 
+  imgWrapper.appendChild(img);
+
   const textWrapper = document.createElement("div");
   textWrapper.setAttribute("class", "book-text");
+  const author = document.createElement("p");
+  author.setAttribute("class", "author");
+  author.textContent = `${bookInfo.author}`;
+  const title = document.createElement("p");
+  title.setAttribute("class", "title");
+  title.textContent = `${bookInfo.title}`;
 
-  imgWrapper.appendChild(img);
+  const rateWrapper = document.createElement("div");
+  rateWrapper.setAttribute("class", "rating");
+  const starsWrapper = document.createElement("div");
+
+  for (let i = 0; i < Math.round(bookInfo.rate); i++) {
+    const star = document.createElement("img");
+    star.setAttribute("src", "../../assets/images/star-icon.svg");
+    starsWrapper.appendChild(star);
+  }
+
+  const rate = document.createElement("p");
+  rate.textContent = `${bookInfo.rate}`;
+  const reviews = document.createElement("p");
+  const n = bookInfo.reviews;
+  const numberFormatter = Intl.NumberFormat("en-US");
+  const formatted = numberFormatter.format(n);
+  reviews.textContent = `(${formatted})`;
+
+  [starsWrapper, rate, reviews].map((el) => rateWrapper.appendChild(el));
+
+  const priceWrapper = document.createElement("div");
+  priceWrapper.setAttribute("class", "price");
+  const p = document.createElement("p");
+  p.textContent = "Price: ";
+  const price = document.createElement("span");
+  price.textContent = `$${bookInfo.price}`;
+
+  [p, price].map((el) => priceWrapper.appendChild(el));
+
+  const moreDetailsBtn = document.createElement("button");
+  moreDetailsBtn.textContent = "More details";
+  moreDetailsBtn.setAttribute("class", "btn btn-white");
+  const addToCartBtn = document.createElement("button");
+  addToCartBtn.textContent = "Add to cart";
+  addToCartBtn.setAttribute("class", "btn btn-yellow");
+
+  [author, title, rateWrapper, priceWrapper, moreDetailsBtn, addToCartBtn].map(
+    (el) => textWrapper.appendChild(el)
+  );
+
   book.appendChild(imgWrapper);
+  book.appendChild(textWrapper);
 
   return book;
 }
