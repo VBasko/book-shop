@@ -198,6 +198,7 @@ function createBook(bookInfo, index) {
   const rateWrapper = document.createElement("div");
   rateWrapper.setAttribute("class", "rating");
   const starsWrapper = document.createElement("div");
+  starsWrapper.setAttribute("class", "stars");
 
   for (let i = 0; i < Math.round(bookInfo.rate); i++) {
     const star = document.createElement("img");
@@ -205,15 +206,13 @@ function createBook(bookInfo, index) {
     starsWrapper.appendChild(star);
   }
 
-  const rate = document.createElement("p");
-  rate.textContent = `${bookInfo.rate}`;
   const reviews = document.createElement("p");
   const n = bookInfo.reviews;
   const numberFormatter = Intl.NumberFormat("en-US");
   const formatted = numberFormatter.format(n);
-  reviews.textContent = `(${formatted})`;
+  reviews.textContent = `${bookInfo.rate} (${formatted})`;
 
-  [starsWrapper, rate, reviews].map((el) => rateWrapper.appendChild(el));
+  [starsWrapper, reviews].map((el) => rateWrapper.appendChild(el));
 
   const priceWrapper = document.createElement("div");
   priceWrapper.setAttribute("class", "price");

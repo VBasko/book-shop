@@ -73,3 +73,126 @@
   transform: rotate(6deg);
   z-index: -1;
 }
+
+.section-third {
+  padding-top: 118px;
+}
+
+.section-third h2 {
+  color: var(--color-blue);
+  text-align: center;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.section-third h2::after {
+  content: url(../../assets/images/catalog-title-decor.svg);
+  position: absolute;
+  top: -20px;
+  left: 600px;
+  z-index: -1;
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 60px;
+}
+
+.book-card {
+  background: var(--color-beije);
+  border: var(--border);
+  box-shadow: 4px 4px 0px var(--color-black);
+  border-radius: 28px;
+  overflow: hidden;
+  height: fit-content;
+}
+
+.book-image {
+  text-align: center;
+  border-bottom: 4px solid #000000;
+  height: 218px;
+}
+
+.book-image img {
+  max-height: 100%;
+}
+
+.book-image.blue {
+  background: var(--color-blue);
+}
+
+.book-image.red {
+  background: var(--color-red);
+}
+
+.book-image.yellow {
+  background: var(--color-yellow);
+}
+
+.book-text {
+  padding: 30px 36px 0;
+}
+
+.author {
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.book-text .title {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.rating {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.stars {
+  display: flex;
+  gap: 8px;
+  margin-right: 18px;
+}
+
+.stars img {
+  width: 18px;
+  height: 18px;
+}
+
+.book-text .price {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  margin-bottom: 30px;
+}
+
+.book-text .price p {
+  padding-bottom: 4px;
+}
+
+.book-text .price span {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.book-card .btn {
+  display: inline-block;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.btn-white {
+  background: var(--color-white);
+  margin-bottom: 20px;
+}
+
+.btn-yellow {
+  color: var(--color-white);
+  background: var(--color-yellow);
+  margin-bottom: 34px;
+}
