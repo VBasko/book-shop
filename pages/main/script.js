@@ -91,6 +91,10 @@ function addFirstSection() {
 
   const right = document.createElement("div");
   right.setAttribute("class", "right");
+  const image = document.createElement("img");
+  image.setAttribute("src", "../../assets/images/hero-image.svg");
+  image.setAttribute("alt", "Girl with books");
+  right.appendChild(image);
 
   container.appendChild(left);
   container.appendChild(right);
@@ -98,19 +102,3 @@ function addFirstSection() {
 
   return sectionFirst;
 }
-
-// sectionFirst.innerHTML = `
-//     <div class="container">
-//       <div class="left">
-//         <h1>Buy <span>books</span> with delivery to your door</h1>
-//         <p>
-//           View a huge selection of books in our catalog. By buying online you
-//           save time reading books.
-//         </p>
-//         <a href="#books" class="btn btn-black"> Get started </a>
-//       </div>
-//       <div class="right">
-//         <img src="../../assets/images/hero-image.svg" alt="Girl with books" />
-//       </div>
-//     </div>
-// `;
