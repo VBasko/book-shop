@@ -121,9 +121,10 @@ function addSecondSection() {
   sectionSecond.setAttribute("class", "section section-second");
   const container = document.createElement("div");
   container.setAttribute("class", "container");
+  const decor = document.createElement("div");
   const text = document.createElement("h2");
   text.textContent = "Trusted by 1,000,000 clients all over the world";
-
+  container.appendChild(decor);
   container.appendChild(text);
   sectionSecond.appendChild(container);
 
