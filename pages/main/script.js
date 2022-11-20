@@ -3,6 +3,7 @@ const wrapperEl = document.getElementById("wrapper");
 window.addEventListener("load", () => {
   addHeader();
   addMain();
+  addFooter();
 });
 
 // Header
@@ -78,6 +79,7 @@ function addMain() {
 function addFirstSection() {
   const sectionFirst = document.createElement("section");
   sectionFirst.setAttribute("class", "section section-first");
+  sectionFirst.setAttribute("id", "about");
   const container = document.createElement("div");
   container.setAttribute("class", "container");
   const left = document.createElement("div");
@@ -95,6 +97,7 @@ function addFirstSection() {
   const cta = document.createElement("a");
   cta.textContent = "Get started";
   cta.setAttribute("class", "btn get-started");
+  cta.setAttribute("href", "#catalog");
   [title, paragraph, cta].map((el) => left.appendChild(el));
 
   const right = document.createElement("div");
@@ -132,6 +135,7 @@ function addSecondSection() {
 function addThirdSection() {
   const sectionThird = document.createElement("section");
   sectionThird.setAttribute("class", "section section-third");
+  sectionThird.setAttribute("id", "catalog");
   const container = document.createElement("div");
   container.setAttribute("class", "container");
 
@@ -239,6 +243,7 @@ function createBook(bookInfo, index) {
 function addFourthSection() {
   const sectionFourth = document.createElement("section");
   sectionFourth.setAttribute("class", "section section-fourth");
+  sectionFourth.setAttribute("id", "contact");
   const container = document.createElement("div");
   container.setAttribute("class", "container");
 
@@ -258,4 +263,31 @@ function addFourthSection() {
   sectionFourth.appendChild(container);
 
   return sectionFourth;
+}
+
+function addFooter() {
+  const container = document.createElement("div");
+  container.setAttribute("class", "container");
+
+  const footerEl = document.createDocumentFragment();
+  const footer = document.createElement("footer");
+  footer.setAttribute("class", "footer");
+
+  const designer = document.createElement("a");
+  designer.textContent = "Designed by Filipp Basko";
+  designer.setAttribute(
+    "href",
+    "https://www.linkedin.com/in/filipp-basko-379175236/"
+  );
+  const developer = document.createElement("a");
+  developer.textContent = "Created by Viktoriia Basko";
+  developer.setAttribute("href", "https://www.linkedin.com/in/vbasko/");
+  const copy = document.createElement("p");
+  copy.setAttribute("class", "copy");
+  copy.textContent = "© 2022 Bookshop";
+
+  [designer, developer, copy].map((el) => container.appendChild(el));
+  footer.appendChild(container);
+  footerEl.appendChild(footer);
+  wrapperEl.appendChild(footerEl);
 }
