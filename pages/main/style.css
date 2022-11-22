@@ -146,7 +146,8 @@
   margin-bottom: 0.75rem;
 }
 
-.book-text .title {
+.book-text .title,
+.modal-text .title {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
@@ -168,24 +169,28 @@
   height: 1rem;
 }
 
-.book-text .price {
+.book-text .price,
+.modal-body .price {
   display: flex;
   gap: 0.25rem;
   align-items: flex-end;
   margin-bottom: 30px;
 }
 
-.book-text .price p {
+.book-text .price p,
+.modal-body .price p {
   padding-bottom: 4px;
 }
 
-.book-text .price span {
+.book-text .price span,
+.modal-body .price span {
   font-weight: 700;
   font-size: 34px;
   line-height: 40px;
 }
 
-.book-card .btn {
+.book-card .btn,
+.modal-body .btn {
   display: inline-block;
   width: 100%;
   padding: 15px 0;
@@ -434,4 +439,99 @@ footer .container {
     text-align: center;
     gap: 1rem;
   }
+}
+
+.modal {
+  background-color: var(--color-white);
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.3s ease-in-out all;
+  border: var(--border);
+  width: 90%;
+  max-width: 1060px;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 20px;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  align-items: center;
+  border-bottom: var(--border);
+}
+
+.close-modal-btn {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 32% 68%;
+}
+
+.modal-body .body-left {
+  border-right: var(--border);
+}
+
+.modal-image {
+  display: flex;
+  justify-content: center;
+  border-bottom: var(--border);
+}
+
+.modal-image.yellow {
+  background-color: var(--color-yellow);
+}
+
+.modal-image.blue {
+  background-color: var(--color-blue);
+}
+
+.modal-image.red {
+  background-color: var(--color-red);
+}
+
+.modal-text {
+  padding: 30px 40px;
+}
+
+.modal-body .body-right {
+  display: grid;
+  grid-template-rows: 67% 33%;
+}
+
+.modal-body .body-right .right-top {
+  border-bottom: var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.overlay {
+  background-color: transparent;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  transform: scale(0);
+  transition: 0.3s ease-in-out all;
+}
+
+.overlay.active {
+  transform: scale(1);
 }

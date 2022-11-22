@@ -181,6 +181,7 @@ function createBook(bookInfo, index) {
 
   const img = document.createElement("img");
   img.setAttribute("src", `${bookInfo.imageLink}`);
+  img.setAttribute("alt", bookInfo.title);
   img.setAttribute("height", "224px");
   img.setAttribute("width", "auto");
 
@@ -225,7 +226,12 @@ function createBook(bookInfo, index) {
 
   const moreDetailsBtn = document.createElement("button");
   moreDetailsBtn.textContent = "More details";
-  moreDetailsBtn.setAttribute("class", "btn btn-white");
+  moreDetailsBtn.setAttribute("class", "btn btn-white details");
+
+  moreDetailsBtn.addEventListener("click", () => {
+    openModal(bookInfo, index);
+  });
+
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
@@ -292,4 +298,134 @@ function addFooter() {
   footer.appendChild(container);
   footerEl.appendChild(footer);
   wrapperEl.appendChild(footerEl);
+}
+
+function openModal(bookInfo, index) {
+  const modalEl = document.createDocumentFragment();
+  const modal = document.createElement("div");
+  modal.setAttribute("class", "modal active");
+  const overlay = document.createElement("div");
+  overlay.setAttribute("class", "overlay active");
+
+  const header = document.createElement("div");
+  header.setAttribute("class", "modal-header");
+  const headerText = document.createElement("p");
+  headerText.textContent = `${bookInfo.title}`;
+  const closeBtn = document.createElement("button");
+  closeBtn.setAttribute("class", "close-modal-btn");
+  closeBtn.innerHTML = `&times;`;
+
+  [headerText, closeBtn].map((el) => header.appendChild(el));
+
+  const body = document.createElement("div");
+  body.setAttribute("class", "modal-body");
+
+  // Left part
+
+  const left = document.createElement("div");
+  left.setAttribute("class", "body-left");
+
+  const modalImage = document.createElement("div");
+
+  if (index % 9 == 0 || index % 9 == 5 || index % 9 == 7) {
+    modalImage.setAttribute("class", "modal-image blue");
+  } else if (index % 9 == 1 || index % 9 == 3 || index % 9 == 8) {
+    modalImage.setAttribute("class", "modal-image red");
+  } else {
+    modalImage.setAttribute("class", "modal-image yellow");
+  }
+
+  const img = document.createElement("img");
+  img.setAttribute("src", `${bookInfo.imageLink}`);
+  img.setAttribute("alt", bookInfo.title);
+  img.setAttribute("height", "330px");
+  img.setAttribute("width", "auto");
+
+  modalImage.appendChild(img);
+
+  const modalText = document.createElement("div");
+  modalText.setAttribute("class", "modal-text");
+
+  const author = document.createElement("p");
+  author.setAttribute("class", "author");
+  author.textContent = `${bookInfo.author}`;
+  const title = document.createElement("p");
+  title.setAttribute("class", "title");
+  title.textContent = `${bookInfo.title}`;
+
+  const rateWrapper = document.createElement("div");
+  rateWrapper.setAttribute("class", "rating");
+  const starsWrapper = document.createElement("div");
+  starsWrapper.setAttribute("class", "stars");
+
+  for (let i = 0; i < Math.round(bookInfo.rate); i++) {
+    const star = document.createElement("img");
+    star.setAttribute("src", "../../assets/images/star-icon.svg");
+    starsWrapper.appendChild(star);
+  }
+
+  const reviews = document.createElement("p");
+  const n = bookInfo.reviews;
+  const numberFormatter = Intl.NumberFormat("en-US");
+  const formatted = numberFormatter.format(n);
+  reviews.textContent = `${bookInfo.rate} (${formatted})`;
+
+  [starsWrapper, reviews].map((el) => rateWrapper.appendChild(el));
+
+  [author, title, rateWrapper].map((el) => modalText.appendChild(el));
+
+  [modalImage, modalText].map((el) => left.appendChild(el));
+
+  // Right part
+
+  const right = document.createElement("div");
+  right.setAttribute("class", "body-right");
+
+  const rightTop = document.createElement("div");
+  rightTop.setAttribute("class", "right-top");
+  const desc = document.createElement("p");
+  desc.setAttribute("class", "description");
+  desc.textContent = `${bookInfo.description}`;
+  rightTop.appendChild(desc);
+
+  const priceAndBtn = document.createElement("div");
+  priceAndBtn.setAttribute("class", "right-bottom");
+
+  const priceWrapper = document.createElement("div");
+  priceWrapper.setAttribute("class", "price");
+  const p = document.createElement("p");
+  p.textContent = "Price: ";
+  const price = document.createElement("span");
+  price.textContent = `$${bookInfo.price}`;
+
+  [p, price].map((el) => priceWrapper.appendChild(el));
+
+  const addToCartBtn = document.createElement("button");
+  addToCartBtn.textContent = "Add to cart";
+  addToCartBtn.setAttribute("class", "btn btn-yellow");
+
+  [priceWrapper, addToCartBtn].map((el) => priceAndBtn.appendChild(el));
+
+  [rightTop, priceAndBtn].map((el) => right.appendChild(el));
+
+  [left, right].map((el) => body.appendChild(el));
+
+  [header, body].map((el) => modal.appendChild(el));
+
+  [overlay, closeBtn].map((el) =>
+    el.addEventListener("click", () => {
+      closeModal(modal, overlay);
+    })
+  );
+  [modal, overlay].map((el) => modalEl.appendChild(el));
+  wrapperEl.appendChild(modalEl);
+}
+
+function closeModal(modal, overlay) {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+  setTimeout(() => {
+    wrapperEl.removeChild(modal);
+    wrapperEl.removeChild(overlay);
+  }, 1000);
 }
