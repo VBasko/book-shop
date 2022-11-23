@@ -44,8 +44,13 @@ function addHeader() {
     if (link.text == "Cart") {
       const span = document.createElement("span");
       span.setAttribute("id", "items-in-cart");
-      span.textContent = "(0)";
+      span.textContent = `(0)`;
       li.appendChild(span);
+
+      li.addEventListener("click", (event) => {
+        event.preventDefault();
+        openCart();
+      });
     }
     navList.appendChild(li);
   });
@@ -433,4 +438,8 @@ function closeModal(modal, overlay) {
     wrapperEl.removeChild(modal);
     wrapperEl.removeChild(overlay);
   }, 1000);
+}
+
+function openCart() {
+  console.log("clicked");
 }
