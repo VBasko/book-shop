@@ -189,8 +189,7 @@
   line-height: 40px;
 }
 
-.book-card .btn,
-.modal-body .btn {
+.book-card .btn {
   display: inline-block;
   width: 100%;
   padding: 15px 0;
@@ -476,6 +475,10 @@ footer .container {
   line-height: 1;
 }
 
+.close-modal-btn:hover {
+  cursor: pointer;
+}
+
 .modal-body {
   display: grid;
   grid-template-columns: 32% 68%;
@@ -518,6 +521,39 @@ footer .container {
   justify-content: center;
   align-items: center;
   padding: 24px;
+}
+
+.right-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.right-bottom > div {
+  height: 100%;
+}
+
+.right-bottom .price {
+  border-right: var(--border);
+  margin-bottom: 0;
+  align-items: center;
+  padding-left: 23px;
+  padding-right: 46px;
+}
+
+.right-bottom .price p {
+  margin-top: 15px;
+}
+
+.right-bottom .btnWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.right-bottom .btn {
+  margin-bottom: 0;
+  padding: 14px 85.5px;
 }
 
 .overlay {

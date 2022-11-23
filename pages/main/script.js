@@ -400,11 +400,16 @@ function openModal(bookInfo, index) {
 
   [p, price].map((el) => priceWrapper.appendChild(el));
 
+  const btnWrapper = document.createElement("div");
+  btnWrapper.setAttribute("class", "btnWrap");
+
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
 
-  [priceWrapper, addToCartBtn].map((el) => priceAndBtn.appendChild(el));
+  btnWrapper.appendChild(addToCartBtn);
+
+  [priceWrapper, btnWrapper].map((el) => priceAndBtn.appendChild(el));
 
   [rightTop, priceAndBtn].map((el) => right.appendChild(el));
 
