@@ -124,15 +124,15 @@
   max-height: 100%;
 }
 
-.book-image.blue {
+.blue {
   background: var(--color-blue);
 }
 
-.book-image.red {
+.red {
   background: var(--color-red);
 }
 
-.book-image.yellow {
+.yellow {
   background: var(--color-yellow);
 }
 
@@ -146,8 +146,7 @@
   margin-bottom: 0.75rem;
 }
 
-.book-text .title,
-.modal-text .title {
+.title {
   font-weight: 700;
   font-size: 1.5rem;
   margin-bottom: 2.5rem;
@@ -470,13 +469,12 @@ footer .container {
   border-bottom: var(--border);
 }
 
-.close-modal-btn {
+.close-btn {
   font-size: 48px;
   line-height: 1;
-}
-
-.close-modal-btn:hover {
   cursor: pointer;
+  border-left: var(--border);
+  padding-left: 27px;
 }
 
 .modal-body {
@@ -492,18 +490,6 @@ footer .container {
   display: flex;
   justify-content: center;
   border-bottom: var(--border);
-}
-
-.modal-image.yellow {
-  background-color: var(--color-yellow);
-}
-
-.modal-image.blue {
-  background-color: var(--color-blue);
-}
-
-.modal-image.red {
-  background-color: var(--color-red);
 }
 
 .modal-text {
@@ -577,15 +563,101 @@ footer .container {
   z-index: 10;
   position: fixed;
   right: 0;
-  top: -100vh;
-  bottom: 0;
+  top: -1000px;
   transition: 0.3s ease-in-out all;
   border-left: var(--border);
   border-right: var(--border);
   width: 520px;
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
 }
 
 .cart.active {
   top: 0;
+}
+
+.cart-body {
+  background-color: var(--color-white);
+}
+
+.cart-header {
+  height: 94px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  border-bottom: var(--border);
+}
+
+.cart-header p {
+  padding-left: 18px;
+}
+
+.cart-header button {
+  padding: 0 27px;
+  height: 100%;
+}
+
+.cart-book-img {
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: var(--border);
+}
+
+.cart-book-img img {
+  width: auto;
+  height: 193px;
+}
+
+.cart-book {
+  border-bottom: var(--border);
+  display: grid;
+  grid-template-columns: 160px auto 70px;
+  min-height: 193px;
+  max-height: fit-content;
+}
+
+.empty-message {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 24px;
+}
+
+.cart-book-details {
+  display: flex;
+  flex-direction: column;
+  padding-top: 47px;
+  padding-left: 20px;
+}
+
+.x-price {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  padding-bottom: 13px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.remove-btn {
+  font-size: 48px;
+  line-height: 1;
+  cursor: pointer;
+  padding-right: 27px;
+  text-align: right;
+  color: var(--color-red);
+}
+
+.price-in-cart {
+  padding-right: 11px;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }

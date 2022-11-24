@@ -2,6 +2,7 @@ const wrapperEl = document.getElementById("wrapper");
 
 window.addEventListener("load", () => {
   addHeader();
+  updateCartIcon();
   addMain();
   addFooter();
 });
@@ -178,13 +179,17 @@ function createBook(bookInfo, index) {
 
   const imgWrapper = document.createElement("div");
 
+  let bgColor;
+
   if (index % 9 == 0 || index % 9 == 5 || index % 9 == 7) {
-    imgWrapper.setAttribute("class", "book-image blue");
+    bgColor = "blue";
   } else if (index % 9 == 1 || index % 9 == 3 || index % 9 == 8) {
-    imgWrapper.setAttribute("class", "book-image red");
+    bgColor = "red";
   } else {
-    imgWrapper.setAttribute("class", "book-image yellow");
+    bgColor = "yellow";
   }
+
+  imgWrapper.setAttribute("class", `book-image ${bgColor}`);
 
   const img = document.createElement("img");
   img.setAttribute("src", `${bookInfo.imageLink}`);
@@ -236,14 +241,14 @@ function createBook(bookInfo, index) {
   moreDetailsBtn.setAttribute("class", "btn btn-white details");
 
   moreDetailsBtn.addEventListener("click", () => {
-    openModal(bookInfo, index, bookId);
+    openModal(bookInfo, bookId, bgColor);
   });
 
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
   addToCartBtn.addEventListener("click", () => {
-    addToCart(bookId);
+    addToCart(bookInfo, bookId, bgColor);
   });
 
   [author, title, rateWrapper, priceWrapper, moreDetailsBtn, addToCartBtn].map(
@@ -310,10 +315,13 @@ function addFooter() {
   wrapperEl.appendChild(footerEl);
 }
 
-function openModal(bookInfo, index, bookId) {
+function openModal(bookInfo, bookId, bgColor) {
   const modalEl = document.createDocumentFragment();
   const modal = document.createElement("div");
-  modal.setAttribute("class", "modal active");
+  modal.setAttribute("class", "modal");
+
+  setTimeout(() => modal.setAttribute("class", "modal active"), 1);
+
   const overlay = document.createElement("div");
   overlay.setAttribute("class", "overlay active");
 
@@ -322,7 +330,7 @@ function openModal(bookInfo, index, bookId) {
   const headerText = document.createElement("p");
   headerText.textContent = `${bookInfo.title}`;
   const closeBtn = document.createElement("button");
-  closeBtn.setAttribute("class", "close-modal-btn");
+  closeBtn.setAttribute("class", "close-btn");
   closeBtn.innerHTML = `&times;`;
 
   [headerText, closeBtn].map((el) => header.appendChild(el));
@@ -337,13 +345,7 @@ function openModal(bookInfo, index, bookId) {
 
   const modalImage = document.createElement("div");
 
-  if (index % 9 == 0 || index % 9 == 5 || index % 9 == 7) {
-    modalImage.setAttribute("class", "modal-image blue");
-  } else if (index % 9 == 1 || index % 9 == 3 || index % 9 == 8) {
-    modalImage.setAttribute("class", "modal-image red");
-  } else {
-    modalImage.setAttribute("class", "modal-image yellow");
-  }
+  modalImage.setAttribute("class", `modal-image ${bgColor}`);
 
   const img = document.createElement("img");
   img.setAttribute("src", `${bookInfo.imageLink}`);
@@ -417,7 +419,7 @@ function openModal(bookInfo, index, bookId) {
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
   addToCartBtn.addEventListener("click", () => {
-    addToCart(bookId);
+    addToCart(bookInfo, bookId, bgColor);
   });
 
   btnWrapper.appendChild(addToCartBtn);
