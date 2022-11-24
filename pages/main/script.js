@@ -170,9 +170,11 @@ function addThirdSection() {
 // Create separate book for the catalog
 
 function createBook(bookInfo, index) {
+  let bookId = bookInfo.title.split(" ").join("");
+
   const book = document.createElement("div");
   book.setAttribute("class", "book-card");
-  book.setAttribute("id", `${index}`);
+  book.setAttribute("id", `${bookId}`);
 
   const imgWrapper = document.createElement("div");
 
@@ -234,12 +236,15 @@ function createBook(bookInfo, index) {
   moreDetailsBtn.setAttribute("class", "btn btn-white details");
 
   moreDetailsBtn.addEventListener("click", () => {
-    openModal(bookInfo, index);
+    openModal(bookInfo, index, bookId);
   });
 
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
+  addToCartBtn.addEventListener("click", () => {
+    addToCart(bookId);
+  });
 
   [author, title, rateWrapper, priceWrapper, moreDetailsBtn, addToCartBtn].map(
     (el) => textWrapper.appendChild(el)
@@ -305,7 +310,7 @@ function addFooter() {
   wrapperEl.appendChild(footerEl);
 }
 
-function openModal(bookInfo, index) {
+function openModal(bookInfo, index, bookId) {
   const modalEl = document.createDocumentFragment();
   const modal = document.createElement("div");
   modal.setAttribute("class", "modal active");
@@ -411,6 +416,9 @@ function openModal(bookInfo, index) {
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to cart";
   addToCartBtn.setAttribute("class", "btn btn-yellow");
+  addToCartBtn.addEventListener("click", () => {
+    addToCart(bookId);
+  });
 
   btnWrapper.appendChild(addToCartBtn);
 
@@ -438,8 +446,4 @@ function closeModal(modal, overlay) {
     wrapperEl.removeChild(modal);
     wrapperEl.removeChild(overlay);
   }, 1000);
-}
-
-function openCart() {
-  console.log("clicked");
 }

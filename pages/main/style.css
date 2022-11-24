@@ -571,3 +571,21 @@ footer .container {
 .overlay.active {
   transform: scale(1);
 }
+
+.cart {
+  background-color: var(--color-white);
+  z-index: 10;
+  position: fixed;
+  right: 0;
+  top: -100vh;
+  bottom: 0;
+  transition: 0.3s ease-in-out all;
+  border-left: var(--border);
+  border-right: var(--border);
+  width: 520px;
+  height: 100vh;
+}
+
+.cart.active {
+  top: 0;
+}
