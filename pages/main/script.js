@@ -5,6 +5,7 @@ window.addEventListener("load", () => {
   updateCartIcon();
   addMain();
   addFooter();
+  addCart();
 });
 
 // Header
@@ -171,7 +172,10 @@ function addThirdSection() {
 // Create separate book for the catalog
 
 function createBook(bookInfo, index) {
-  let bookId = bookInfo.title.split(" ").join("");
+  let bookId = bookInfo.title
+    .split(" ")
+    .join("")
+    .replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, "");
 
   const book = document.createElement("div");
   book.setAttribute("class", "book-card");
@@ -448,4 +452,52 @@ function closeModal(modal, overlay) {
     wrapperEl.removeChild(modal);
     wrapperEl.removeChild(overlay);
   }, 1000);
+}
+
+function addCart() {
+  const cartEl = document.createDocumentFragment();
+  const cart = document.createElement("div");
+  cart.setAttribute("class", "cart");
+  cart.setAttribute("id", "cart");
+
+  const cartHeader = document.createElement("div");
+  cartHeader.classList.add("cart-header");
+  const cartName = document.createElement("p");
+  cartName.textContent = "Cart";
+  const closeBtn = document.createElement("button");
+  closeBtn.setAttribute("class", "close-btn");
+  closeBtn.innerHTML = `&times;`;
+  [cartName, closeBtn].map((el) => cartHeader.appendChild(el));
+
+  const cartBody = document.createElement("div");
+  cartBody.classList.add("cart-body");
+  cartBody.setAttribute("id", "cart-body");
+
+  const total = document.createElement("p");
+  total.setAttribute("class", "total-price");
+  total.setAttribute("id", "total-price");
+
+  const goToCheckout = document.createElement("a");
+  goToCheckout.setAttribute("class", "btn btn-yellow go-to-checkout");
+  goToCheckout.setAttribute("id", "go-to-checkout");
+  goToCheckout.setAttribute(
+    "href",
+    "https://vbasko.github.io/book-shop/pages/order/"
+  );
+  goToCheckout.textContent = "Go to checkout";
+
+  [cartHeader, cartBody, total, goToCheckout].map((el) => cart.appendChild(el));
+
+  const overlay = document.createElement("div");
+  overlay.setAttribute("class", "overlay");
+  overlay.setAttribute("id", "cart-overlay");
+
+  [cart, overlay].map((el) => cartEl.appendChild(el));
+  wrapperEl.appendChild(cartEl);
+
+  [closeBtn, overlay].map((el) =>
+    el.addEventListener("click", () => {
+      closeCart(cart, overlay);
+    })
+  );
 }
