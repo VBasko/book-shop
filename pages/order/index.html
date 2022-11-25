@@ -10,6 +10,69 @@
     <link rel="stylesheet" href="../order/style.css" />
   </head>
   <body>
-    <div class="wrapper">Here will be order page</div>
+    <div class="wrapper" id="wrapper">
+      <header class="header active" id="header">
+        <div class="container">
+          <a class="logo" href="https://vbasko.github.io/book-shop/pages/main/"
+            ><img src="../../assets/images/logo.svg"
+          /></a>
+          <nav>
+            <ul class="nav-links">
+              <li class="nav-link">
+                <a href="https://vbasko.github.io/book-shop/pages/main/#contact"
+                  >Contact</a
+                >
+              </li>
+              <li class="nav-link">
+                <a href="https://vbasko.github.io/book-shop/pages/main/#about"
+                  >About</a
+                >
+              </li>
+              <li class="nav-link">
+                <a href="/" id="cart-link">Cart</a
+                ><span id="items-in-cart"></span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section>
+          <div class="container">
+            <h2>Confirmation</h2>
+            <form></form>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <a
+            href="https://www.linkedin.com/in/filipp-basko-379175236/"
+            target="_blank"
+            >Designed by Filipp Basko</a
+          ><a href="https://www.linkedin.com/in/vbasko/" target="_blank"
+            >Created by Viktoriia Basko</a
+          >
+          <p class="copy">© 2022 Bookshop</p>
+        </div>
+      </footer>
+      <div class="cart" id="cart">
+        <div class="cart-header">
+          <p>Cart</p>
+          <button class="close-btn">&times;</button>
+        </div>
+        <div class="cart-body" id="cart-body"></div>
+        <p class="total-price" id="total-price"></p>
+        <a
+          class="btn btn-yellow go-to-checkout"
+          id="go-to-checkout"
+          href="https://vbasko.github.io/book-shop/pages/main/"
+          >Homepage</a
+        >
+      </div>
+      <div class="overlay" id="cart-overlay"></div>
+    </div>
+    <script src="../../pages/main/interaction.js" defer></script>
+    <script src="../order/script.js" defer></script>
   </body>
 </html>
