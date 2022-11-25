@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="wrapper" id="wrapper">
-      <header class="header active" id="header">
+      <header class="header" id="header">
         <div class="container">
           <a class="logo" href="https://vbasko.github.io/book-shop/pages/main/"
             ><img src="../../assets/images/logo.svg"
@@ -40,7 +40,73 @@
         <section>
           <div class="container">
             <h2>Confirmation</h2>
-            <form></form>
+            <form class="confirmation-form">
+              <section>
+                <h3>Personal Information</h3>
+                <div class="name-surname">
+                  <label for="name">
+                    <input type="text" name="name" id="name" />
+                    Name
+                  </label>
+                  <label for="surname">
+                    <input type="text" name="surname" id="name" />
+                    Surname
+                  </label>
+                </div>
+                <label for="street">
+                  <input type="text" name="street" id="street" />
+                  Street
+                </label>
+                <div class="house-flat-date">
+                  <label for="house"
+                    ><input type="text" name="house" id="house" />House
+                    Number</label
+                  >
+                  <label for="flat"
+                    ><input type="text" name="flat" id="flat" />Flat
+                    Number</label
+                  >
+                  <label for="date"
+                    ><input type="text" name="date" id="date" />Delivery
+                    Date</label
+                  >
+                </div>
+              </section>
+              <div class="payment-gifts">
+                <section>
+                  <h3>Payment Method</h3>
+                  <label for="cash"
+                    ><input type="radio" name="payment" id="cash" />
+                    <span>Cash</span>
+                    <span class="small">Payment when delivered</span>
+                  </label>
+                  <label for="card"
+                    ><input type="radio" name="payment" id="card" />
+                    <span>Card</span>
+                    <span class="small">Payment on the site</span>
+                  </label>
+                </section>
+                <section>
+                  <h3>Gifts</h3>
+                  <label for="pack"
+                    ><input type="checkbox" name="gift" id="pack" />Pack as a
+                    gift</label
+                  >
+                  <label for="postcard"
+                    ><input type="checkbox" name="gift" id="postcard" />Add
+                    postcard</label
+                  >
+                  <label for="discount"
+                    ><input type="checkbox" name="gift" id="discount" />Provide
+                    2% discount to the next time</label
+                  >
+                  <label for="merch"
+                    ><input type="checkbox" name="gift" id="merch" />Branded pen
+                    or pencil</label
+                  >
+                </section>
+              </div>
+            </form>
           </div>
         </section>
       </main>
@@ -72,7 +138,7 @@
       </div>
       <div class="overlay" id="cart-overlay"></div>
     </div>
-    <script src="../../pages/main/interaction.js" defer></script>
     <script src="../order/script.js" defer></script>
+    <script src="../../pages/main/interaction.js" defer></script>
   </body>
 </html>
