@@ -6,13 +6,99 @@ h2 {
   margin-bottom: 70px;
 }
 
+.confirmation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 520px;
+}
+
 .confirmation-form section {
   margin: 0;
   padding: 0;
+  color: #515151;
 }
 
 .confirmation-form h3 {
   font-weight: 500;
+  margin-bottom: 44px;
+  color: var(--color-black);
   font-size: 18px;
-  line-height: 1.17;
+}
+
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.label-input {
+  position: relative;
+  width: 100%;
+}
+
+.label-input label {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  transition: var(--transition);
+  padding-left: 4px;
+}
+
+.name-surname,
+.house-flat-date {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: none;
+  padding-left: 4px;
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--color-blue);
+}
+
+input:focus + label {
+  color: var(--color-blue);
+}
+
+.label-input input:focus + label,
+.label-input input:valid + label {
+  bottom: 24px;
+  font-size: 14px;
+}
+
+.label-input.invalid label {
+  bottom: 24px;
+  font-size: 14px;
+  color: var(--color-red);
+}
+
+.label-input.invalid input {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.label-input.invalid input::after {
+  content: "The field is invalid";
+  position: absolute;
+  bottom: -20px;
+  font-size: 11px;
+  color: var(--color-red);
+}
+
+input[type="date"] + label {
+  opacity: 0;
+}
+
+input[type="date"]:valid + label {
+  opacity: 1;
 }

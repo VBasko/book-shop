@@ -40,36 +40,43 @@
         <section>
           <div class="container">
             <h2>Confirmation</h2>
-            <form class="confirmation-form">
+            <form
+              class="confirmation-form"
+              name="myForm"
+              id="myForm"
+              autocomplete="off"
+            >
               <section>
                 <h3>Personal Information</h3>
-                <div class="name-surname">
-                  <label for="name">
-                    <input type="text" name="name" id="name" />
-                    Name
-                  </label>
-                  <label for="surname">
-                    <input type="text" name="surname" id="name" />
-                    Surname
-                  </label>
-                </div>
-                <label for="street">
-                  <input type="text" name="street" id="street" />
-                  Street
-                </label>
-                <div class="house-flat-date">
-                  <label for="house"
-                    ><input type="text" name="house" id="house" />House
-                    Number</label
-                  >
-                  <label for="flat"
-                    ><input type="text" name="flat" id="flat" />Flat
-                    Number</label
-                  >
-                  <label for="date"
-                    ><input type="text" name="date" id="date" />Delivery
-                    Date</label
-                  >
+                <div class="personal-info">
+                  <div class="name-surname">
+                    <div class="label-input">
+                      <input type="text" name="name" id="name" required />
+                      <label for="name"> Name </label>
+                    </div>
+                    <div class="label-input">
+                      <input type="text" name="surname" id="surname" required />
+                      <label for="surname"> Surname </label>
+                    </div>
+                  </div>
+                  <div class="label-input">
+                    <input type="text" name="street" id="street" required />
+                    <label for="street"> Street </label>
+                  </div>
+                  <div class="house-flat-date">
+                    <div class="label-input">
+                      <input type="text" name="house" id="house" required />
+                      <label for="house">House Number</label>
+                    </div>
+                    <div class="label-input">
+                      <input type="text" name="flat" id="flat" required />
+                      <label for="flat">Flat Number</label>
+                    </div>
+                    <div class="label-input">
+                      <input type="date" name="date" id="date" required />
+                      <label for="date">Delivery Date</label>
+                    </div>
+                  </div>
                 </div>
               </section>
               <div class="payment-gifts">
@@ -106,6 +113,7 @@
                   >
                 </section>
               </div>
+              <input type="submit" value="Confirm" class="btn btn-yellow" />
             </form>
           </div>
         </section>
@@ -125,7 +133,7 @@
       <div class="cart" id="cart">
         <div class="cart-header">
           <p>Cart</p>
-          <button class="close-btn">&times;</button>
+          <button class="close-btn" id="close-cart-btn">&times;</button>
         </div>
         <div class="cart-body" id="cart-body"></div>
         <p class="total-price" id="total-price"></p>
