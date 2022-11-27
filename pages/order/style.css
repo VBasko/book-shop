@@ -87,12 +87,19 @@ input:focus + label {
   color: var(--color-red);
 }
 
-.label-input.invalid input::after {
-  content: "The field is invalid";
+.label-input .invalid-message {
+  opacity: 0;
+  transition: var(--transition);
+  color: var(--color-red);
   position: absolute;
   bottom: -20px;
+  left: 0;
+  z-index: 5;
   font-size: 11px;
-  color: var(--color-red);
+}
+
+.label-input.invalid .invalid-message {
+  opacity: 1;
 }
 
 input[type="date"] + label {
@@ -101,4 +108,9 @@ input[type="date"] + label {
 
 input[type="date"]:valid + label {
   opacity: 1;
+}
+
+input[type="submit"]:disabled {
+  background: #515151;
+  box-shadow: 1px 1px 0px #000000;
 }

@@ -53,28 +53,34 @@
                     <div class="label-input">
                       <input type="text" name="name" id="name" required />
                       <label for="name"> Name </label>
+                      <span class="invalid-message">The field is invalid</span>
                     </div>
                     <div class="label-input">
                       <input type="text" name="surname" id="surname" required />
                       <label for="surname"> Surname </label>
+                      <span class="invalid-message">The field is invalid</span>
                     </div>
                   </div>
                   <div class="label-input">
                     <input type="text" name="street" id="street" required />
                     <label for="street"> Street </label>
+                    <span class="invalid-message">The field is invalid</span>
                   </div>
                   <div class="house-flat-date">
                     <div class="label-input">
                       <input type="text" name="house" id="house" required />
                       <label for="house">House Number</label>
+                      <span class="invalid-message">The field is invalid</span>
                     </div>
                     <div class="label-input">
                       <input type="text" name="flat" id="flat" required />
                       <label for="flat">Flat Number</label>
+                      <span class="invalid-message">The field is invalid</span>
                     </div>
                     <div class="label-input">
                       <input type="date" name="date" id="date" required />
                       <label for="date">Delivery Date</label>
+                      <span class="invalid-message">The field is invalid</span>
                     </div>
                   </div>
                 </div>
@@ -113,7 +119,12 @@
                   >
                 </section>
               </div>
-              <input type="submit" value="Confirm" class="btn btn-yellow" />
+              <input
+                type="submit"
+                value="Confirm"
+                class="btn btn-yellow"
+                disabled
+              />
             </form>
           </div>
         </section>
