@@ -30,9 +30,11 @@ fname.addEventListener("input", () => {
   if (!namePattern.test(fname.value) || fname.value.trim() === "") {
     fname.closest(".label-input").classList.add("invalid");
     isNameValid = false;
+    checkAllInputFields();
   } else {
     fname.closest(".label-input").classList.remove("invalid");
     isNameValid = true;
+    checkAllInputFields();
   }
 });
 
@@ -44,9 +46,11 @@ surname.addEventListener("input", () => {
   if (!surnamePattern.test(surname.value) || surname.value.trim() === "") {
     surname.closest(".label-input").classList.add("invalid");
     isSurnameValid = false;
+    checkAllInputFields();
   } else {
     surname.closest(".label-input").classList.remove("invalid");
     isSurnameValid = true;
+    checkAllInputFields();
   }
 });
 
@@ -58,9 +62,11 @@ street.addEventListener("input", () => {
   if (!streetPattern.test(street.value) || street.value.trim() === "") {
     street.closest(".label-input").classList.add("invalid");
     isStreetValid = false;
+    checkAllInputFields();
   } else {
     street.closest(".label-input").classList.remove("invalid");
     isStreetValid = true;
+    checkAllInputFields();
   }
 });
 
@@ -72,23 +78,27 @@ house.addEventListener("input", () => {
   if (!housePattern.test(house.value) || house.value.trim() === "") {
     house.closest(".label-input").classList.add("invalid");
     isHouseValid = false;
+    checkAllInputFields();
   } else {
     house.closest(".label-input").classList.remove("invalid");
     isHouseValid = true;
+    checkAllInputFields();
   }
 });
 
 const flat = myForm["flat"];
-const flatPattern = /(^[\d]+[-\d]+$)||(^[\d]*$)/;
+const flatPattern = /^[\d]+[\d-]*[\d]*$/;
 let isFlatValid = false;
 
 flat.addEventListener("input", () => {
   if (!flatPattern.test(flat.value) || flat.value.trim() === "") {
     flat.closest(".label-input").classList.add("invalid");
     isFlatValid = false;
+    checkAllInputFields();
   } else {
     flat.closest(".label-input").classList.remove("invalid");
     isFlatValid = true;
+    checkAllInputFields();
   }
 });
 
@@ -107,6 +117,7 @@ if (day < 10) {
 date.setAttribute("min", `${year}-${month}-${day}`);
 
 function checkAllInputFields() {
+  const submitBtn = document.getElementById("form-submit-btn");
   if (
     isNameValid &&
     isSurnameValid &&
@@ -114,6 +125,9 @@ function checkAllInputFields() {
     isHouseValid &&
     isFlatValid
   ) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
   }
 }
 
