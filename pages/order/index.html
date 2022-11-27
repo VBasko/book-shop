@@ -88,35 +88,62 @@
               <div class="payment-gifts">
                 <section>
                   <h3>Payment Method</h3>
-                  <label for="cash"
-                    ><input type="radio" name="payment" id="cash" />
-                    <span>Cash</span>
-                    <span class="small">Payment when delivered</span>
-                  </label>
-                  <label for="card"
-                    ><input type="radio" name="payment" id="card" />
-                    <span>Card</span>
-                    <span class="small">Payment on the site</span>
-                  </label>
+                  <div class="label-input-radio">
+                    <input
+                      type="radio"
+                      name="payment"
+                      id="cash"
+                      required
+                      checked
+                    />
+                    <label for="cash">
+                      <span>Cash</span>
+                      <span class="small">Payment when delivered</span>
+                    </label>
+                  </div>
+                  <div class="label-input-radio">
+                    <input type="radio" name="payment" id="card" />
+                    <label for="card">
+                      <span>Card</span>
+                      <span class="small">Payment on the site</span>
+                    </label>
+                  </div>
                 </section>
                 <section>
                   <h3>Gifts</h3>
-                  <label for="pack"
-                    ><input type="checkbox" name="gift" id="pack" />Pack as a
-                    gift</label
-                  >
-                  <label for="postcard"
-                    ><input type="checkbox" name="gift" id="postcard" />Add
-                    postcard</label
-                  >
-                  <label for="discount"
-                    ><input type="checkbox" name="gift" id="discount" />Provide
-                    2% discount to the next time</label
-                  >
-                  <label for="merch"
-                    ><input type="checkbox" name="gift" id="merch" />Branded pen
-                    or pencil</label
-                  >
+                  <div class="label-input-gifts">
+                    <input type="checkbox" name="gift" id="pack" value="pack" />
+                    <label for="pack">Pack as a gift</label>
+                  </div>
+                  <div class="label-input-gifts">
+                    <input
+                      type="checkbox"
+                      name="gift"
+                      id="postcard"
+                      value="postcard"
+                    />
+                    <label for="postcard">Add postcard</label>
+                  </div>
+                  <div class="label-input-gifts">
+                    <input
+                      type="checkbox"
+                      name="gift"
+                      id="discount"
+                      value="discount"
+                    />
+                    <label for="discount"
+                      >Provide 2% discount to the next time
+                    </label>
+                  </div>
+                  <div class="label-input-gifts">
+                    <input
+                      type="checkbox"
+                      name="gift"
+                      id="merch"
+                      value="merch"
+                    />
+                    <label for="merch">Branded pen or pencil</label>
+                  </div>
                 </section>
               </div>
               <input

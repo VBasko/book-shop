@@ -110,7 +110,122 @@ input[type="date"]:valid + label {
   opacity: 1;
 }
 
+input[type="submit"] {
+  padding: 14px 85.5px;
+  max-width: 340px;
+}
+
 input[type="submit"]:disabled {
   background: #515151;
   box-shadow: 1px 1px 0px #000000;
+}
+
+.payment-gifts {
+  display: flex;
+  gap: 20px;
+}
+
+.payment-gifts section {
+  width: 100%;
+}
+
+.label-input-radio {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  gap: 27px;
+  height: 72px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  min-width: 18px;
+  max-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #515151;
+  outline: none;
+  position: relative;
+}
+
+input[type="radio"]::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #515151;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+input[type="radio"]:checked::after {
+  opacity: 1;
+}
+
+.label-input-radio label {
+  width: 100%;
+}
+
+.label-input-radio label span {
+  display: block;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.17;
+  color: #000000;
+}
+
+.label-input-radio label span.small {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: #515151;
+  opacity: 0.8;
+}
+
+.label-input-gifts {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+}
+
+.label-input-gifts input {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 18px;
+  max-width: 18px;
+  min-height: 18px;
+  max-height: 18px;
+  background-color: transparent;
+  border: 2px solid #515151;
+  outline: none;
+  color: #000000;
+  position: relative;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.label-input-gifts input::after {
+  content: url(../../assets/images/checkmark.svg);
+  position: absolute;
+  bottom: -2px;
+  left: 1px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.label-input-gifts input:checked {
+  background-color: var(--color-blue);
+  border-color: var(--color-blue);
+}
+
+.label-input-gifts input:checked::after {
+  opacity: 1;
 }

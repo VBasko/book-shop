@@ -133,5 +133,7 @@ function checkAllInputFields() {
 
 myForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  let isValid;
+  alert(
+    `The order created. The delivery address is ${street.value} house ${house.value} flat ${flat.value}. Customer ${fname.value} ${surname.value}.`
+  );
 });
